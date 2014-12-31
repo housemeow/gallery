@@ -2,6 +2,11 @@ extends layout
 
 block content
   h1 Gallery
-  ul
-    each url in urls.length? urls : ['No picture.']
-      li: img(src=url, width=640)
+  if urls.length
+    ul
+      each url in urls
+        li
+          img(src=url.content, width=640)
+          a(href="/clear/" + url._id) Delete
+  else
+    p No picture.

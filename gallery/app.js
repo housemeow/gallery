@@ -1,3 +1,5 @@
+require('./db');
+
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -9,6 +11,7 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var upload = require('./routes/upload');
 var gallery = require('./routes/gallery');
+var clear = require('./routes/clear');
 
 var app = express();
 
@@ -28,6 +31,7 @@ app.use('/', routes);
 app.use('/users', users);
 app.use('/upload', upload);
 app.use('/gallery', gallery);
+app.use('/clear', clear);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
